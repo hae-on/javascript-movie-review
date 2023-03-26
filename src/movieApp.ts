@@ -1,4 +1,4 @@
-import { mostPopular, search, genre } from "./fetch";
+import { mostPopular, search, getGenre } from "./fetch";
 import movieHandler from "./domain/movieHandler";
 import { $ } from "./utils/dom";
 import MovieListContainer from "./components/MovieListContainer";
@@ -120,7 +120,7 @@ const MovieApp = {
   async onHandleModal(id: number) {
     const movieDetailModal = <MovieDetailModal>$("movie-detail-modal");
     const selectedMovie = movieHandler.getSelectedMovie(id);
-    const genreList = await genre();
+    const genreList = await getGenre();
 
     movieDetailModal?.render(selectedMovie, genreList["genres"]);
     movieDetailModal.openModal();

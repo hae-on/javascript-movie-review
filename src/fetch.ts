@@ -26,7 +26,7 @@ export const search = async (query: string, pageNumber: number) => {
   return await fetchData(url);
 };
 
-export const genre = async () => {
+export const getGenre = async () => {
   const url = `${FetchUrl.GENRE_URL}`;
   return await fetchData(url);
 };
