@@ -66,10 +66,11 @@ class Vote extends HTMLElement {
   renderScoreAndMessage(order: number) {
     const $voteScore = $(".vote-score");
     const $voteMessage = $(".vote-message");
-    const message = this.showMessage(order);
+    const message = this.getMessage(order);
+    const score = order * 2;
 
-    if ($voteScore) $voteScore.textContent = String(order * 2);
-    if ($voteMessage) $voteMessage.textContent = message;
+    $voteScore.textContent = String(score);
+    $voteMessage.textContent = message;
 
     this.renderStar(order);
   }
@@ -80,7 +81,7 @@ class Vote extends HTMLElement {
     });
   }
 
-  showMessage(order: number) {
+  getMessage(order: number) {
     switch (order) {
       case 1:
         return "최악이예요";

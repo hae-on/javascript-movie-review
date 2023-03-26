@@ -1,9 +1,16 @@
 import type { CustomEvent } from "../types/type";
 
-export const $ = (
+export const $ = <T extends Element = Element>(
   selector: string,
   target: HTMLElement | Document = document
-) => target.querySelector(selector);
+) => {
+  const element = target.querySelector<T>(selector);
+
+  if (!element) {
+    throw new Error(`Element not found: ${selector}`);
+  }
+  return element;
+};
 
 export const $$ = (
   selector: string,
