@@ -60,6 +60,7 @@ class MovieDetailModal extends HTMLElement {
     $elements.forEach((element) => {
       element?.addEventListener("click", () => {
         dialog.close();
+        document.body.classList.remove("scroll-lock");
       });
     });
   }
