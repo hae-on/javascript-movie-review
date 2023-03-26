@@ -12,15 +12,23 @@ class Vote extends HTMLElement {
     this.render();
   }
 
+  renderStarIcon() {
+    return Array(5)
+      .fill("")
+      .map(
+        (_, i) =>
+          `<img class="star-icon" data-order="${
+            i + 1
+          }" src="${StarEmpty}" alt="start" />`
+      )
+      .join("");
+  }
+
   render() {
     this.innerHTML = /* html */ `
         <span class="vote-title">내 별점</span>
         <div class="vote-stars">
-          <img class="star-icon" data-order="1" src="${StarEmpty}" alt="start" />
-          <img class="star-icon" data-order="2" src="${StarEmpty}" alt="start" />
-          <img class="star-icon" data-order="3" src="${StarEmpty}" alt="start" />
-          <img class="star-icon" data-order="4" src="${StarEmpty}" alt="start" />
-          <img class="star-icon" data-order="5" src="${StarEmpty}" alt="start" />
+          ${this.renderStarIcon()}
         </div>
         <span class="vote-score">0</span>
         <span class="vote-message">별점을 눌러주세요</span>
