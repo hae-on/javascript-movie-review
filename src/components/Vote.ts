@@ -54,16 +54,16 @@ class Vote extends HTMLElement {
   addClickStarEvent() {
     $(".vote-stars")?.addEventListener("click", (event) => {
       const id = this.idAttribute;
-      const target = <HTMLElement>event.target;
-      const order = Number(
-        (<HTMLElement>target.closest(".star-icon"))?.dataset.order
-      );
+      const target = event.target;
 
-      if (!id) return;
-      if (!order) return;
+      if (target instanceof HTMLElement) {
+        const starIcon = target.closest(".star-icon");
+        const order =
+          starIcon instanceof HTMLElement ? Number(starIcon.dataset.order) : 0;
 
-      this.renderScoreAndMessage(order);
-      this.saveUserOrder(id, order);
+        this.renderScoreAndMessage(order);
+        this.saveUserOrder(id, order);
+      }
     });
   }
 

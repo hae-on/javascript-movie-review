@@ -25,15 +25,18 @@ class MovieHeader extends HTMLElement {
       location.reload();
     });
 
-    const mobileButton = <HTMLElement>$(".mini-search-box");
-    const searchBox = <HTMLElement>$(".search-box");
+    const mobileButton = $(".mini-search-box");
+    const searchBox = $(".search-box");
 
-    if (!mobileButton) return;
-
-    mobileButton.addEventListener("click", () => {
-      mobileButton.style.display = "none";
-      searchBox.style.display = "block";
-    });
+    if (
+      mobileButton instanceof HTMLElement &&
+      searchBox instanceof HTMLElement
+    ) {
+      mobileButton.addEventListener("click", () => {
+        mobileButton.style.display = "none";
+        searchBox.style.display = "block";
+      });
+    }
   }
 }
 

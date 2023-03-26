@@ -52,8 +52,10 @@ class MovieDetailModal extends HTMLElement {
   }
 
   addEvent() {
-    const dialog = <HTMLDialogElement>$("dialog");
+    const dialog = $("dialog");
     const $elements = [$(".modal-backdrop"), $(".modal-close-button")];
+
+    if (!(dialog instanceof HTMLDialogElement)) return;
 
     $elements.forEach((element) => {
       element?.addEventListener("click", () => {
@@ -63,7 +65,9 @@ class MovieDetailModal extends HTMLElement {
   }
 
   openModal() {
-    const dialog = <HTMLDialogElement>$("dialog");
+    const dialog = $("dialog");
+    if (!(dialog instanceof HTMLDialogElement)) return;
+
     dialog.showModal();
     document.body.classList.add("scroll-lock");
   }

@@ -31,17 +31,21 @@ class MovieListContainer extends HTMLElement {
 
     $("movie-list")?.addEventListener("click", (event) => {
       event.preventDefault();
-
-      const target = <HTMLElement>event.target;
-      const id = target.closest<HTMLElement>("movie-item")?.id;
-
-      if (id) {
-        dispatchCustomEvent(this, {
-          eventType: "openMovieDetail",
-          data: id,
-        });
+    
+      const target = event.target;
+    
+      if (target instanceof HTMLElement) {
+        const id = target.closest("movie-item")?.id;
+    
+        if (id) {
+          dispatchCustomEvent(this, {
+            eventType: "openMovieDetail",
+            data: id,
+          });
+        }
       }
     });
+    
   }
 
   scrollingEvent() {
