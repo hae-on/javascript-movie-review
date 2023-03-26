@@ -81,29 +81,20 @@ class Vote extends HTMLElement {
   }
 
   showMessage(order: number) {
-    let message = "";
-
     switch (order) {
       case 1:
-        message = "최악이예요";
-        break;
+        return "최악이예요";
       case 2:
-        message = "별로예요";
-        break;
+        return "별로예요";
       case 3:
-        message = "보통이에요";
-        break;
+        return "보통이에요";
       case 4:
-        message = "재미있어요";
-        break;
+        return "재미있어요";
       case 5:
-        message = "명작이에요";
-        break;
+        return "명작이에요";
       default:
-        message = "별점을 눌러주세요";
-        break;
+        return "별점을 눌러주세요";
     }
-    return message;
   }
 
   saveUserOrder(id: number, order: number) {
