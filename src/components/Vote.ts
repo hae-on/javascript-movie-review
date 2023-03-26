@@ -12,6 +12,10 @@ class Vote extends HTMLElement {
     this.render();
   }
 
+  get idAttribute() {
+    return Number(this.getAttribute("modal-id"));
+  }
+
   renderStarIcon() {
     return Array(5)
       .fill("")
@@ -38,7 +42,7 @@ class Vote extends HTMLElement {
   }
 
   judgeProcess() {
-    const id = Number(this.getAttribute("modal-id"));
+    const id = this.idAttribute;
     const order = getSavedData("modalData")[id];
 
     if (order) {
@@ -49,7 +53,7 @@ class Vote extends HTMLElement {
 
   addClickStarEvent() {
     $(".vote-stars")?.addEventListener("click", (event) => {
-      const id = Number(this.getAttribute("modal-id"));
+      const id = this.idAttribute;
       const target = <HTMLElement>event.target;
       const order = Number(
         (<HTMLElement>target.closest(".star-icon"))?.dataset.order
