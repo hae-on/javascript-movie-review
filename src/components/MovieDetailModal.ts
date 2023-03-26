@@ -65,6 +65,7 @@ class MovieDetailModal extends HTMLElement {
   openModal() {
     const dialog = <HTMLDialogElement>$("dialog");
     dialog.showModal();
+    document.body.classList.add("scroll-lock");
   }
 }
 

@@ -233,8 +233,8 @@ movie-list:has(.not-search) {
   justify-content: center;
 }
 
-.modal--open {
-  display: block;
+.scroll-lock {
+  overflow: hidden;
 }
 
 .modal-backdrop {
