@@ -12,10 +12,17 @@ export const $ = <T extends Element = Element>(
   return element;
 };
 
-export const $$ = (
+export const $$ = <T extends Element = Element>(
   selector: string,
   target: HTMLElement | Document = document
-) => target.querySelectorAll(selector);
+) => {
+  const elements = target.querySelectorAll<T>(selector);
+
+  if (!elements || !elements.length) {
+    throw new Error(`Element not found: ${selector}`);
+  }
+  return elements;
+};
 
 export const dispatchCustomEvent = (
   $target: HTMLElement,
