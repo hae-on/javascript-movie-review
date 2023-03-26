@@ -15,7 +15,7 @@ const movieHandler: MovieHandler = {
   },
 
   getSelectedMovie(id: number): Movie {
-    return <Movie>this.movies.find((movie) => movie.id === Number(id));
+    return <Movie>this.movies.find((movie) => movie.id === id);
   },
 
   initializeMovies() {

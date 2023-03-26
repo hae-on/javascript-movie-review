@@ -117,9 +117,9 @@ const MovieApp = {
     this.loadMovieData(movies);
   },
 
-  async onHandleModal(id: number) {
+  async onHandleModal(id: string) {
     const movieDetailModal = <MovieDetailModal>$("movie-detail-modal");
-    const selectedMovie = movieHandler.getSelectedMovie(id);
+    const selectedMovie = movieHandler.getSelectedMovie(Number(id));
     const genreList = await getGenre();
 
     movieDetailModal?.render(selectedMovie, genreList["genres"]);
