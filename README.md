@@ -28,7 +28,7 @@
   </tr>
   <tr>
     <td align="center">
-      <a href="https://github.com/feb-dain" target="_blank">
+      <a href="https://github.com/nangkyeonglim" target="_blank">
         파인(임낭경)
       </a>
     </td>
